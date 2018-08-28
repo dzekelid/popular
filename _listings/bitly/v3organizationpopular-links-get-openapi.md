@@ -16,6 +16,39 @@ produces:
 consumes:
 - application/json
 paths:
+  /v3/user/popular_links:
+    get:
+      summary: Get User Popular Links
+      description: Returns the authenticated user's most-clicked bitly links (ordered
+        by number of clicks) in a given time period.
+      operationId: Get_user_popular_links_
+      x-api-path-slug: v3userpopular-links-get
+      parameters:
+      - in: query
+        name: format
+        description: Response format
+      - in: query
+        name: limit
+        description: (optional) 1 to 1000 (default=100)
+      - in: query
+        name: rollup
+        description: (optional) true or false
+      - in: query
+        name: timezone
+        description: (optional) an integer hour offset from UTC (-14 to 14)
+      - in: query
+        name: unit
+        description: minute, hour, day, week or month
+      - in: query
+        name: units
+        description: an integer representing the time units to query data for
+      responses:
+        200:
+          description: OK
+      tags:
+      - User
+      - Popular
+      - Links
   /v3/organization/popular_links:
     get:
       summary: Organization Popular Links
